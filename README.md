@@ -21,28 +21,29 @@ The following links use [http://www.mergely.com] to diff the providers.
 
 First you need to [install the greasemonkey firefox plugin](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
 
+Note: If you need to clear the stored credentials entered below then use Greasemonkey > User Script Commands > Reset greaseauth stored credentials
+
 ### google
 
-* Register an application with the [google console](https://code.google.com/apis/console#access) (use "https://www.google.com/greaseauth" as redirect uri)
+* Register an application with the [google console](https://code.google.com/apis/console#access) (use "https://www.google.com/greaseauth" as redirect uri) - you will be prompted to enter these the first time you use the script
 * Load the [greaseauth-google script](https://github.com/parker0phil/greaseauth/raw/master/greaseauth-google.user.js) in greasemonkey (opening the link in firefox should do it automatically)
-* Edit the script to add your clientId and clientSecret
 * Point your browser to http://www.google.com/greaseauth
 
 ### facebook
 
 * //TODO
-* Load the [greaseauth-facebook script](https://github.com/parker0phil/greaseauth/raw/master/greaseauth-facebook.user.js) in greasemonkey (opening the link in firefox should do it automatically)
-* Edit the script to add your clientId and clientSecret
+* Load the [greaseauth-facebook script](https://github.com/parker0phil/greaseauth/raw/master/greaseauth-facebook.user.js) in greasemonkey (opening the link in firefox should do it automatically)  - you will be prompted to enter these the first time you use the script
 * Point your browser to http://www.facebook.com/greaseauth
 
 ### twitter
 
 * //TODO
-* Load the [greaseauth-twitter script](https://github.com/parker0phil/greaseauth/raw/master/greaseauth-twitter.user.js) in greasemonkey (opening the link in firefox should do it automatically)
-* Edit the script to add your clientId and clientSecret
-* Point your browser to http://www.facebook.com/greaseauth
+* Load the [greaseauth-twitter script](https://github.com/parker0phil/greaseauth/raw/master/greaseauth-twitter.user.js) in greasemonkey (opening the link in firefox should do it automatically)  - you will be prompted to enter these the first time you use the script
+* Point your browser to http://www.twitter.com/greaseauth
 
 ### More?
 
 * Github?
+
+
 

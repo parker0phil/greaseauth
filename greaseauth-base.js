@@ -26,3 +26,26 @@ function renderJson(jsonString) {
     body.innerHTML = "<pre><code>"+jsonString+"</code></pre>"
     hljs.highlightBlock(body)
 }
+
+function clientId(script) {
+    return retrieve("clientId", script)
+}
+function clientSecret(script) {
+    return retrieve("clientSecret", script)
+}
+
+function retrieve(name, script) {
+    var key = script+"::"+name
+    if (!GM_getValue (key, "")) {
+        GM_setValue (key, prompt ('Please enter ' + name + ' for ' + script,''));
+    }
+    return GM_getValue (key, "");
+}
+
+GM_registerMenuCommand ("Reset greaseauth stored credentials", clearStoredCreds);
+
+function clearStoredCreds() {
+	GM_deleteValue("google::clientId")
+	GM_deleteValue("google::clientSecret")
+}
+

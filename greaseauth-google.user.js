@@ -4,6 +4,10 @@
 // @grant       GM_xmlhttpRequest
 // @grant       GM_addStyle
 // @grant       GM_getResourceText
+// @grant    	GM_getValue
+// @grant    	GM_setValue
+// @grant    	GM_deleteValue
+// @grant    	GM_registerMenuCommand
 // @include     http://www.google.com/greaseauth*
 // @include     https://www.google.com/greaseauth*
 // @version     1
@@ -12,8 +16,8 @@
 // @require greaseauth-base.js
 // ==/UserScript==
 
-var clientId = "668519132155.apps.googleusercontent.com"
-var clientSecret = "ArfekWWJD2sW9-XVjlJ-R6HF"
+var clientId = clientId("google")
+var clientSecret = clientSecret("google")
 var redirectUri = encodeURIComponent("https://www.google.com/greaseauth")
 
 var authCode = getQueryParam("code");
