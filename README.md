@@ -25,15 +25,27 @@ Note: If you need to clear the stored credentials entered below then use Greasem
 
 ### google
 
-* Register an application with the [google console](https://code.google.com/apis/console#access) (use "https://www.google.com/greaseauth" as redirect uri) - you will be prompted to enter these the first time you use the script
+* Register an application with the [google console](https://code.google.com/apis/console#access) 
+* Use "https://www.google.com/greaseauth" as redirect uri 
+* You will be prompted to enter the client id and secret the first time you use the script
 * Load the [greaseauth-google script](https://github.com/parker0phil/greaseauth/raw/master/greaseauth-google.user.js) in greasemonkey (opening the link in firefox should do it automatically)
 * Point your browser to http://www.google.com/greaseauth
 
+#### revoking access
+
+[https://accounts.google.com/b/0/IssuedAuthSubTokens?hl=en]
+
 ### facebook
 
-* //TODO
+* Register an application with the [facebook app dashboard](https://developers.facebook.com/apps) 
+* Use "https://www.facebook.com/greaseauth" as Website with Facebook Login > Site URL
+* You will be prompted to enter the app id and secret (as client id and secret) the first time you use the script
 * Load the [greaseauth-facebook script](https://github.com/parker0phil/greaseauth/raw/master/greaseauth-facebook.user.js) in greasemonkey (opening the link in firefox should do it automatically)  - you will be prompted to enter these the first time you use the script
 * Point your browser to http://www.facebook.com/greaseauth
+
+#### revoking access
+
+[https://www.facebook.com/settings?tab=applications]
 
 ### twitter
 

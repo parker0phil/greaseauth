@@ -6,8 +6,9 @@ var body = document.getElementsByTagName("body")[0]
 body.innerHTML = ""
 body.setAttribute("style","background:none;width:100%;height:100%;margin:10px;padding:10px")
 
-function getQueryParam(variable) {
-    var query = window.location.search.substring(1);
+
+function getQueryParam(variable, query) {
+    if (!query) {query = window.location.search.substring(1);}
     var vars = query.split('&');
     for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split('=');
