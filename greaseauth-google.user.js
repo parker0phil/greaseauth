@@ -9,52 +9,35 @@
 // @version     1
 // @require http://yandex.st/highlightjs/7.3/highlight.min.js
 // @resource  highlight  http://yandex.st/highlightjs/7.3/styles/default.min.css
+// @require greaseauth-base.js
 // ==/UserScript==
 
-GM_addStyle(GM_getResourceText ("highlight"));
-
-function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable) {
-            return decodeURIComponent(pair[1]);
-        }
-    }
-}
-
-var authCode = getQueryVariable("code");
-var baseUri = "https://accounts.google.com/o/oauth2"
 var clientId = "668519132155.apps.googleusercontent.com"
-var clientSecret = ""
-var redirectUri = "https%3A%2F%2Fwww.google.com%2Fgreaseauth"
+var clientSecret = "ArfekWWJD2sW9-XVjlJ-R6HF"
+var redirectUri = encodeURIComponent("https://www.google.com/greaseauth")
 
-if (authCode){
+var authCode = getQueryParam("code");
+if (!authCode){
+  redirectTo("https://accounts.google.com/o/oauth2/auth"
+		+"?scope=" + encodeURIComponent("https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile")
+		+"&redirect_uri=" + redirectUri
+		+"&client_id=" + clientId
+		+"&response_type=code&approval_prompt=force")
+}else{
     GM_xmlhttpRequest({
         method: "POST",
-        url: baseUri + "/token",
+        url: "https://accounts.google.com/o/oauth2/token",
         data: "code="+authCode+"&client_id="+clientId+"&client_secret="+clientSecret+"&redirect_uri="+redirectUri+"&grant_type=authorization_code",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
         onload: function(response) {
-            var accessToken = JSON.parse(response.responseText).access_token
             GM_xmlhttpRequest({
                 method: "GET",
                 url: "https://www.googleapis.com/oauth2/v1/userinfo",
-                headers: {
-                    "Authorization": "Bearer " + accessToken
-                },
+                headers: {"Authorization": "Bearer " + JSON.parse(response.responseText).access_token},
                 onload: function(response) {
-                   var body = document.getElementsByTagName("body")[0]
-                   body.setAttribute("style","background:none;")
-                   body.innerHTML = "<pre><code>"+response.responseText+"</code></pre>"
-                   hljs.highlightBlock(body)
+                   renderJson(response.responseText)
                 }
             });   
         }
     });
-}else{
-    window.location = baseUri + "/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&redirect_uri="+redirectUri+"&response_type=code&client_id="+clientId+"&approval_prompt=force"
 }
