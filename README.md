@@ -9,13 +9,11 @@ It uses [greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonk
 
 The scripts are designed to be diffed and highlight the differences between the implementations.
 
-The following links use [http://www.mergely.com] to diff the providers. 
+The following links uses [http://www.diffnow.com] to diff the providers. 
 
-//TODO:
 
-[google vs facebook](http://www.mergely.com)
-[google vs twitter](http://www.mergely.com)
-[facebook vs twitter](http://www.mergely.com)
+[google vs facebook](http://www.diffnow.com/?report=d5z60)
+
 
 ## Try them
 
@@ -46,15 +44,11 @@ Note: If you need to clear the stored credentials entered below then use Greasem
 #### revoking access
 
 [https://www.facebook.com/settings?tab=applications]
-
-### twitter
-
-* //TODO
-* Load the [greaseauth-twitter script](https://github.com/parker0phil/greaseauth/raw/master/greaseauth-twitter.user.js) in greasemonkey (opening the link in firefox should do it automatically)  - you will be prompted to enter these the first time you use the script
-* Point your browser to http://www.twitter.com/greaseauth
+oint your browser to http://www.twitter.com/greaseauth
 
 ### More?
 
+* Twitter? - Oauth1
 * Github?
 
 
